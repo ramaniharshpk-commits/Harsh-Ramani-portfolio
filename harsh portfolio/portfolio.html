@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Portfolio</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- TYPED JS -->
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #c084fc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -5px;
+            background: #a855f7;
+            transition: 0.4s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #c084fc;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 8%;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: slideLeft 1s ease;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+        }
+
+        .purple {
+            color: #c084fc;
+        }
+
+        #element {
+            color: #a855f7;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+        }
+
+        .hero-text p {
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #a855f7;
+            color: white;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #a855f7;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #a855f7;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 420px;
+            max-width: 100%;
+            filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.5));
+        }
+
+        /* ABOUT */
+
+        .about {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .about h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #c084fc;
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            line-height: 2;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            padding: 100px 8%;
+        }
+
+        .projects h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #c084fc;
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-top: 10px;
+            color: #94a3b8;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(168, 85, 247, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #c084fc;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .card .btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #38bdf8;
+            color: black;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .skills h1 {
+            color: #c084fc;
+            margin-bottom: 40px;
+            font-size: 3rem;
+        }
+
+        .skill-box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .skill span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 12px;
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: linear-gradient(to right, #9333ea, #38bdf8);
+            border-radius: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .contact h1 {
+            font-size: 3rem;
+            color: #c084fc;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .socials {
+            margin-top: 20px;
+        }
+
+        .socials i {
+            font-size: 28px;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .socials i:hover {
+            transform: scale(1.2);
+            color: #c084fc;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #020617;
+            padding: 25px;
+            text-align: center;
+            margin-top: 50px;
+            color: #94a3b8;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px) {
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.7rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="logo">Harsh Portfolio</div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Hi, I'm <span class="purple">Harsh</span>
+            </h1>
+
+            <h1>
+                <span id="element"></span>
+            </h1>
+
+            <p>
+                I create modern websites, animated portfolios,
+                responsive web applications and clean user interfaces
+                with smooth user experience.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="dev-Picsart-BackgroundRemover.png" alt="">
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+        <h1>About Me</h1>
+
+        <p>
+            I am a passionate web developer and designer with experience
+            in creating modern and responsive websites. I continuously
+            learn new technologies and improve my skills to create
+            beautiful, functional and user-friendly websites.
+        </p>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="projects">
+
+        <h1>My Projects 🚀</h1>
+        <h2>12+ Projects Completed</h2>
+
+        <div class="projects-container">
+
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p>Modern responsive personal portfolio website.</p>
+                <a href="#" class="btn">Visit</a>
+            </div>
+
+            <div class="card">
+                <h3>Rubik's Cube Site</h3>
+                <p>Cube learning website with algorithms and tutorials.</p>
+                <a href="https://github.com/ramaniharshpk-commits/rubiks-cube-project" class="btn">Visit</a>
+            </div>
+
+            <div class="card">
+                <h3>E-Commerce Store</h3>
+                <p>Online shopping website using HTML CSS JS.</p>
+                <a href="#" class="btn">Visit</a>
+            </div>
+
+            <div class="card">
+                <h3>Gym Website</h3>
+                <p>Modern gym UI with workout plans and animations.</p>
+                <a href="https://github.com/ramaniharshpk-commits/harshramani22" class="btn">Visit</a>
+            </div>
+
+            <div class="card">
+                <h3>Coffee Shop Site</h3>
+                <p>Professional cafe website for clients.</p>
+                <a href="#" class="btn">Visit</a>
+            </div>
+
+            <div class="card">
+                <h3>Restaurant Website</h3>
+                <p>Beautiful responsive restaurant menu website.</p>
+                <a href="#" class="btn">Visit</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section class="skills">
+
+        <h1>My Skills</h1>
+
+        <div class="skill-box">
+
+            <div class="skill">
+                <span>HTML</span>
+                <div class="bar">
+                    <div class="fill" style="width:100%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>CSS</span>
+                <div class="bar">
+                    <div class="fill" style="width:100%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="bar">
+                    <div class="fill" style="width:75%"></div>
+                </div>
+            </div>
+
+
+
+            <div class="skill">
+                <span>Responsive Design</span>
+                <div class="bar">
+                    <div class="fill" style="width:92%"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <h1>Contact Me</h1>
+
+        <p>Email: ramaniharshpk@gmail.com</p>
+        <p>Available for freelance projects and website designing.</p>
+
+        <div class="socials">
+            <i class="fab fa-github"></i>
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-discord"></i>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 Harsh Portfolio | Designed By Harsh
+    </footer>
+
+    <!-- TYPING EFFECT -->
+
+    <script>
+
+        var typed = new Typed('#element', {
+            strings: [
+                'Web Developer.',
+                'Frontend Designer.',
+                'JavaScript Programmer.',
+                'RUBIKS Cubes Solver, Enthuaist.',
+                'Creative Freelancer.',
+                'Programmer.'
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
+        });
+
+    </script>
+
+    <!-- SCROLL ANIMATION -->
+
+    <script>
+
+        ScrollReveal().reveal('.card', {
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.about', {
+            distance: '50px',
+            duration: 1000,
+            origin: 'left'
+        });
+
+        ScrollReveal().reveal('.skills', {
+            distance: '50px',
+            duration: 1000,
+            origin: 'right'
+        });
+
+    </script>
+
+</body>
+
+</html>
